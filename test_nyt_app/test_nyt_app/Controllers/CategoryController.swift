@@ -18,15 +18,15 @@ class CategoryController: UIViewController {
 
         self.setForTable()
         
-        self.categoryArray = [CategoryModel(name: "Arts", searchName: "Arts", categoryImage: "nytMark"),
-                              CategoryModel(name: "Automobiles", searchName: "Automobiles", categoryImage: "nytMark"),
-                              CategoryModel(name: "Business", searchName: "Business", categoryImage: "nytMark"),
-                              CategoryModel(name: "Culture", searchName: "Culture", categoryImage: "nytMark"),
-                              CategoryModel(name: "Health", searchName: "Health", categoryImage: "nytMark"),
-                              CategoryModel(name: "Letters", searchName: "Letters", categoryImage: "nytMark"),
-                              CategoryModel(name: "Movies", searchName: "Movies", categoryImage: "nytMark"),
-                              CategoryModel(name: "Play", searchName: "Play", categoryImage: "nytMark"),
-                              CategoryModel(name: "Style", searchName: "Style", categoryImage: "nytMark")]
+        self.categoryArray = [CategoryModel(name: "Arts", searchName: "Arts", categoryImage: "arts"),
+                              CategoryModel(name: "Automobiles", searchName: "Automobiles", categoryImage: "automobiles"),
+                              CategoryModel(name: "Business", searchName: "Business", categoryImage: "business"),
+                              CategoryModel(name: "Culture", searchName: "Culture", categoryImage: "culture"),
+                              CategoryModel(name: "Health", searchName: "Health", categoryImage: "health"),
+                              CategoryModel(name: "Letters", searchName: "Letters", categoryImage: "letters"),
+                              CategoryModel(name: "Movies", searchName: "Movies", categoryImage: "movies"),
+                              CategoryModel(name: "Play", searchName: "Play", categoryImage: "play"),
+                              CategoryModel(name: "Style", searchName: "Style", categoryImage: "style")]
         
     }
     fileprivate func setForTable() {

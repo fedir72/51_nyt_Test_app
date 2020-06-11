@@ -15,7 +15,8 @@ class CategoryCell: UITableViewCell {
     
     func setCell(category: CategoryModel) {
         self.categoryImageView.image = UIImage(named: category.categoryImage)
-        self.categoryImageView.layer.cornerRadius = 30
+        self.categoryImageView.layer.cornerRadius = 50
+        
         self.categoryLabel.text = category.name
     }
     
