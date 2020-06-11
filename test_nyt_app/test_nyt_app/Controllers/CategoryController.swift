@@ -34,6 +34,21 @@ class CategoryController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToArticles" {
+            
+            //индекс выбранной ячейки
+            if let indexPath = tableView.indexPathForSelectedRow  {
+                //передача значения для поиска в контроллер
+                (segue.destination as? ViewController)?.themeForSearch = categoryArray[indexPath.row].searchName
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        
+        
+        
+    }
 
 
 }
@@ -54,4 +69,7 @@ extension CategoryController: UITableViewDelegate ,UITableViewDataSource {
         return 105
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      performSegue(withIdentifier: "goToArticles", sender: self)
+    }
 }

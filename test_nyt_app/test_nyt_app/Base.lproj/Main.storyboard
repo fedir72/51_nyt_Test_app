@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" title="Выберите категорию поиска статей" id="of8-Yz-gM8"/>
                     <connections>
                         <outlet property="tableView" destination="5kW-xq-YwE" id="Ahr-C6-yuC"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Rt4-a0-xpu"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToArticles" id="Rt4-a0-xpu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obb-DF-yqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

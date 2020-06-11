@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setForTable()
-        
+       print("themeForSearch:", themeForSearch!)
         //MARK: - вызов загрузки данных
-        NetworkManager.shared.getdArticles(theme: "Health") { (model) in
+        NetworkManager.shared.getdArticles(theme: self.themeForSearch ?? "Health") { (model) in
             self.articles = model!.response!.docs!
             DispatchQueue.main.async {
                 self.tableView.reloadData()
