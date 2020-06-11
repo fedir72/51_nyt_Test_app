@@ -19,14 +19,6 @@ class NetworkManager {
     
     func getdArticles(theme: String , result: @escaping ((OfferModel?) -> ())) {
   
-//      var urlComponents = URLComponents()
-//        urlComponents.scheme = "https"
-//        urlComponents.host = "api.nytimes.com"
-//        urlComponents.path = "/svc/search/v2/articlesearch.json"
-//        urlComponents.queryItems = [URLQueryItem(name: "q", value:"TheNewYorkTimesfq=news_desk:(\(theme))"),
-//                                    URLQueryItem(name: "api_key", value: "LucVQN80Hcs1DWf37dMmFc2XtpHfZovV")]
-//        var request = URLRequest(url: urlComponents.url!)
-//        request.httpMethod = "GET"
         
         let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=TheNewYorkTimesfq=news_desk:(Sports)&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
         let task = URLSession(configuration: .default)

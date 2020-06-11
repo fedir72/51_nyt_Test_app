@@ -26,7 +26,7 @@ class ArticleCell: UITableViewCell {
     }
     
     func setData(doc: Doc) {
-        self.sectionLabel.text = doc.section_name
+        self.sectionLabel.text = doc.section_name ?? ""
         self.sourceLabel.text = doc.source
         self.snippetTextView.text = doc.abstract
     }

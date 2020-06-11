@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import SafariServices
 
 //https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV
 class ViewController: UIViewController {
     
+    var themeForSearch: String?
+    
     var articles = [Doc]()
-    //var network = NetworkManager()
+    
+   
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -21,8 +25,9 @@ class ViewController: UIViewController {
         
         //MARK: - вызов загрузки данных
         NetworkManager.shared.getdArticles(theme: "Sports") { (model) in
-            for i in model!.response!.docs! {
-                print("Main: ",i.headline?.main!)
+            self.articles = model!.response!.docs!
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
@@ -41,11 +46,12 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return articles.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleCell
-        
+        let artcl = articles[indexPath.row]
+        cell.setData(doc: artcl)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -53,32 +59,12 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return 159
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let artcl = articles[indexPath.row]
+        if let url = URL(string: artcl.web_url! ) {
+            let svc = SFSafariViewController(url: url)
+            present(svc, animated: true, completion: nil)
+        }
+    }
 }
 
-extension ViewController {
-//    fileprivate func getData() {
-//        let str = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=Health&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
-//        if let url = URL(string: str) {
-//        let session = URLSession.shared
-//        session.dataTask(with: url) { (data, responce, error) in
-//            guard data != nil else {return}
-//            let rootDictionaryAny = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String:Any]
-//
-//            guard rootDictionaryAny != nil else {return}
-//                        //print("root",rootDictionaryAny!)
-//
-//            if let array = rootDictionaryAny!["response"]  {
-//                let arrDocs = array as! [String:Any]
-//                let docs = arrDocs["docs"]
-//                print("docs: ",docs)
-//
-//            }
-//
-//
-//
-//
-//            }.resume()
-//
-//        }
-//}
-}
