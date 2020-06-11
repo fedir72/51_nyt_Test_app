@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-//https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV
+
 class ViewController: UIViewController {
     
     var themeForSearch: String?
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         setForTable()
         
         //MARK: - вызов загрузки данных
-        NetworkManager.shared.getdArticles(theme: "Sports") { (model) in
+        NetworkManager.shared.getdArticles(theme: "Health") { (model) in
             self.articles = model!.response!.docs!
             DispatchQueue.main.async {
                 self.tableView.reloadData()

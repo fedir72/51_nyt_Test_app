@@ -20,9 +20,13 @@ class NetworkManager {
     func getdArticles(theme: String , result: @escaping ((OfferModel?) -> ())) {
   
         
-        let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=TheNewYorkTimesfq=news_desk:(Sports)&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
+        
+               let str2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(%22\(theme)%22)&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
+        
+        let url = URL(string: str2)!
         let task = URLSession(configuration: .default)
-        task.dataTask(with: URL(string: url)!) { (data, response, error) in
+        
+        task.dataTask(with: url) { (data, response, error) in
             if error == nil {
                 let decoder = JSONDecoder()
                 var decodeOfferModel: OfferModel?

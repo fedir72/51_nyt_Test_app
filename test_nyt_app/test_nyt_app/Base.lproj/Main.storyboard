@@ -7,6 +7,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Выберите категорию поиска статей-->
+        <scene sceneID="qxp-XH-ExK">
+            <objects>
+                <viewController id="jXX-Jg-mqB" customClass="CategoryController" customModule="test_nyt_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfE-NR-TDh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kW-xq-YwE">
+                                <rect key="frame" x="0.0" y="88" width="414" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5kW-xq-YwE" firstAttribute="top" secondItem="e6t-Wd-b5W" secondAttribute="top" id="1hL-ev-F5O"/>
+                            <constraint firstAttribute="bottom" secondItem="5kW-xq-YwE" secondAttribute="bottom" constant="20" symbolic="YES" id="jwo-Sq-zAI"/>
+                            <constraint firstItem="5kW-xq-YwE" firstAttribute="trailing" secondItem="e6t-Wd-b5W" secondAttribute="trailing" id="kYe-xp-m1Q"/>
+                            <constraint firstItem="5kW-xq-YwE" firstAttribute="leading" secondItem="e6t-Wd-b5W" secondAttribute="leading" id="xhk-ti-Dki"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e6t-Wd-b5W"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Выберите категорию поиска статей" id="of8-Yz-gM8"/>
+                    <connections>
+                        <outlet property="tableView" destination="5kW-xq-YwE" id="Ahr-C6-yuC"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="Rt4-a0-xpu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Obb-DF-yqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339" y="200"/>
+        </scene>
         <!--Articles-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -37,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1170" y="265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PIH-DE-ADf">
@@ -50,12 +82,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DTH-1r-uPK"/>
+                        <segue destination="jXX-Jg-mqB" kind="relationship" relationship="rootViewController" id="LaW-b1-NzR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCj-kt-Xdn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-490" y="143"/>
         </scene>
     </scenes>
 </document>

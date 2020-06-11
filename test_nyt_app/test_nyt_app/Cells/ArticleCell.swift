@@ -12,23 +12,17 @@ class ArticleCell: UITableViewCell {
     
     @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var snippetTextView: UITextView!
+    @IBOutlet weak var snippetLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+ 
     
     func setData(doc: Doc) {
-        self.sectionLabel.text = doc.section_name ?? ""
+        self.sectionLabel.text = doc.section_name
         self.sourceLabel.text = doc.source
-        self.snippetTextView.text = doc.abstract
+        self.snippetLabel.text = doc.abstract
+       
     }
     
 }
