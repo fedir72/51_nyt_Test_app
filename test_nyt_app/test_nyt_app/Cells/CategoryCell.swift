@@ -13,10 +13,13 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    func setCell(category: CategoryModel) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.categoryImageView.layer.cornerRadius = categoryImageView.frame.width / 2
+    }
+    
+    func setCell(category: Category) {
         self.categoryImageView.image = UIImage(named: category.categoryImage)
-        self.categoryImageView.layer.cornerRadius = 50
-        
         self.categoryLabel.text = category.name
     }
     

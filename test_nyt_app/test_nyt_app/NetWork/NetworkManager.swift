@@ -5,44 +5,67 @@
 //  Created by fedir on 10.06.2020.
 //  Copyright © 2020 fedir. All rights reserved.
 //
-
-let urlStr = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=MenHealth&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
    
-
-
 import Foundation
 
 class NetworkManager {
     
-    private init () {}
-    static let shared: NetworkManager = NetworkManager()
+    private init () {
+        self.session = URLSession(configuration: .default)
+    }
     
-    func getdArticles(theme: String , result: @escaping ((OfferModel?) -> ())) {
-  
+    static let shared = NetworkManager()
+    
+    var session: URLSession
+    
+    func getdArticles(categoryName: String , result: @escaping ((OfferModel?) -> ())) {
         
-        
-               let str2 = "https://api.nytimes.com/svc/search/v2/articlesearch.json?fq=news_desk:(%22\(theme)%22)&api-key=LucVQN80Hcs1DWf37dMmFc2XtpHfZovV"
-        
-        let url = URL(string: str2)!
-        let task = URLSession(configuration: .default)
-        
-        task.dataTask(with: url) { (data, response, error) in
-            if error == nil {
-                let decoder = JSONDecoder()
-                var decodeOfferModel: OfferModel?
+        guard let url = self.url(with: categoryName) else { return result(nil) }
                 
-                if data != nil {
-                    decodeOfferModel = try? decoder.decode(OfferModel.self, from: data!)
+        session.dataTask(with: url) { (data, response, error) in
+            
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    result(nil)
                 }
-                //передаем в комплишн
-                result(decodeOfferModel)
+                print(error?.localizedDescription ?? "Error found")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            var decodeOfferModel: OfferModel?
                 
-            }else{
-                print(error as Any)
+            if let data = data {
+                decodeOfferModel = try? decoder.decode(OfferModel.self, from: data)
+            }
+            DispatchQueue.main.async {
+                result(decodeOfferModel)
             }
         }.resume()
     }
+}
+
+extension NetworkManager {
+    
+    var urlComponents: URLComponents {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.nytimes.com"
+        urlComponents.path = "/svc/search/v2/articlesearch.json"
+        return urlComponents
+    }
+    
+    func url(with category: String) -> URL? {
         
+        let queryParams: [URLQueryItem] = [
+            URLQueryItem(name: "fq", value: "news_desk:(\(category))"),
+            URLQueryItem(name: "api-key", value: "LucVQN80Hcs1DWf37dMmFc2XtpHfZovV")
+        ]
+        
+        var components = self.urlComponents
+        components.queryItems = queryParams
+        return components.url
+    }
     
 }
 

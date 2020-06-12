@@ -16,13 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="388" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-kO-RvA">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrE-kO-RvA">
                         <rect key="frame" x="123" y="34" width="245" height="37"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="33"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOZ-m7-Sf3">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOZ-m7-Sf3">
                         <rect key="frame" x="11" y="8" width="92" height="89"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="vOZ-m7-Sf3" secondAttribute="height" multiplier="92:89" id="bPn-bU-koS"/>

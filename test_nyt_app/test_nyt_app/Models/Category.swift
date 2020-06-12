@@ -1,5 +1,5 @@
 //
-//  CategoryModel.swift
+//  Category.swift
 //  test_nyt_app
 //
 //  Created by fedir on 11.06.2020.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct CategoryModel {
+struct Category {
     var name: String
     var searchName: String
     var categoryImage: String
-   
 }
+

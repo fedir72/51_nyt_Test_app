@@ -19,14 +19,13 @@ class Response: Codable {
     var docs: [Doc]?
 }
 
-
 class Doc: Codable {
      var abstract: String?
      var web_url: String?
      var source: String?
      var headline: HeadLine?
-     var news_desk: String
-     var section_name: String
+     var news_desk: String?
+     var section_name: String?
      var type_of_material: String?
 }
 

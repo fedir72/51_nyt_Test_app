@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Выберите категорию поиска статей-->
+        <!--Category-->
         <scene sceneID="qxp-XH-ExK">
             <objects>
                 <viewController id="jXX-Jg-mqB" customClass="CategoryController" customModule="test_nyt_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e6t-Wd-b5W"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Выберите категорию поиска статей" id="of8-Yz-gM8"/>
+                    <navigationItem key="navigationItem" title="Category" id="of8-Yz-gM8"/>
                     <connections>
                         <outlet property="tableView" destination="5kW-xq-YwE" id="Ahr-C6-yuC"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToArticles" id="Rt4-a0-xpu"/>
@@ -37,12 +37,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Obb-DF-yqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339" y="200"/>
+            <point key="canvasLocation" x="291" y="143"/>
         </scene>
         <!--Articles-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="test_nyt_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ArticleController" customModule="test_nyt_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,6 +51,16 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="VZO-dp-bRN">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="8xP-PH-kOb">
+                                    <rect key="frame" x="0.0" y="1" width="414" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -69,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1170" y="265"/>
+            <point key="canvasLocation" x="1120" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PIH-DE-ADf">
